@@ -1,0 +1,11 @@
+[project]
+name="media_record"
+version="0.0.1"
+description="No"
+dependencies=[
+    "flask",
+]
+
+[build-system]
+requires=["flit_core<4"]
+build-backend="flit_core.buildapi"

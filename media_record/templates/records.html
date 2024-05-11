@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <ul>
+            {% if g.user %}
+                <li><span>{{ g.user['username'] }}</span></li>
+                <li><a href="{{ url_for('auth.logout')}}">Logout</a></li>
+            {% endif %}
+        </ul>
+        <a href="{{ url_for('records.create_get')}}">Create</a>
+        <ul>
+        {% for record in records %}
+            <li>{{ record['name'] }}</li>
+            <li>{{ record['media_type'] }}</li>
+            <li>{{ record['current_episode_non_season'] }}</li>
+            <li>{{ record['full_episode_non_season'] }}</li>
+            <li>
+                <a href="{{ url_for('records.update_get', id=record['record_id']) }}">Edit</a>
+            </li>
+            <li>
+                <a href="">The Remove button</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

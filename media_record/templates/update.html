@@ -1,0 +1,24 @@
+<html>
+
+<body>
+
+{% for message in get_flashed_messages() %}
+    <div>{{message}}</div>
+{% endfor %}
+<form method="post">
+    <label for="name">Name</label>
+    <input name="name" id="name" value="{{ record['name'] }}" required>
+    <label for="media_type">Type</label>
+    <input name="media_type" id="media_type" value="{{ record['media_type'] }}" required>
+    <label for="current_episode_non_season">Current Episode</label>
+    <input type="number" name="current_episode_non_season" id="current_episode_non_season" value="{{ record['current_episode_non_season'] }}" required>
+    <label for="full_episode_non_season">All Episodes</label>
+    <input type="number" name="full_episode_non_season" id="full_episode_non_season" value="{{ record['full_episode_non_season'] }}" required>
+    <input type="submit" value="Submit">
+</form>
+<form method="post" action="{{ url_for('records.delete_post', id=record['record_id']) }}">
+    <input type="submit" value="Delete" onclick="return confirm('You sure bout that?');">
+</form>
+
+</body>
+</html>
